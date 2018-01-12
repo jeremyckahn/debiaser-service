@@ -5,7 +5,7 @@
   "main": "dist/app.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --config webpack.test.config.js --open",
+    "start": "node src/index.js",
     "test": "echo \"no tests\" && exit 1",
     "test:watch": "nodemon --exec \"npm test\" --watch src --watch test",
     "preversion": "npm test",
@@ -39,5 +39,9 @@
     "nodemon": "^1.11.0",
     "webpack": "^3.5.6",
     "webpack-dev-server": "^2.7.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
   }
 }
