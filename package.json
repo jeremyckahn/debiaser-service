@@ -6,9 +6,8 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server --config webpack.test.config.js --open",
-    "test": "mocha ./node_modules/babel-core/register.js test/index.js",
+    "test": "echo \"no tests\" && exit 1",
     "test:watch": "nodemon --exec \"npm test\" --watch src --watch test",
-    "test:browsers": "karma start",
     "preversion": "npm test",
     "postversion": "git push && git push --tags && npm run deploy",
     "doc": "jsdoc -c .jsdoc src",
