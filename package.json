@@ -4,7 +4,9 @@
   "description": "A demonstration of modern JavaScript project structure",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js"
+    "start": "node ./index.js",
+    "deploy": "now",
+    "undeploy": "now rm debiaser-service"
   },
   "author": "Jeremy Kahn <jeremyckahn@gmail.com>",
   "license": "MIT",
@@ -14,5 +16,8 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "now": "^9.0.1"
   }
 }
