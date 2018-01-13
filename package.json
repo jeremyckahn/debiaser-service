@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
-    "deploy": "now",
-    "undeploy": "now rm debiaser-service"
+    "deploy": "now --public",
+    "undeploy": "now rm debiaser-service",
+    "print:logs": "now logs $(now ls debiaser-service | tail -n2 | grep -o \"debiaser-service-.*.now.sh\")"
   },
   "author": "Jeremy Kahn <jeremyckahn@gmail.com>",
   "license": "MIT",
