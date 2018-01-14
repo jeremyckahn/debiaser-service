@@ -1,108 +1,40 @@
-# JavaScript Project Starter
+# Debiaser Service
 
-### My personal starting point for JavaScript projects
+**Note: This is very basic and potentially unstable.  You probably don't want to actually use it for anything other than perhaps a reference for deploying simple ZEIT services.**
 
-This project provides a bootstrap for:
+This is the API for [a protoype](https://codepen.io/jeremyckahn/pen/JMbbmw) of [an app I want to build](https://twitter.com/jeremyckahn/status/950515535183335432) called Debiaser.
 
-  * Authoring in ES6
-  * Running tests (written in [Mocha](https://mochajs.org/))
-  * Browser dev tool support
-  * A build process
-  * Versioned releases
+## Developing
 
-## Getting started
+1. Clone out this repo, `cd` into it
+2. Create a https://zeit.co/ account and configure your local dev environment to use it
+3. Put a [News API](https://newsapi.org/) key in `news-api-key.txt` with no newlines
 
-Here's a handy snippet you can add to your `.bash_profile` to create new tools easily:
+## Running locally
 
 ```
-function new_js_project() {
-  if [ -z "$1" ];
-  then
-    "Must specify a project name as the first argument"
-    return
-  else
-    git clone --depth=1 https://github.com/jeremyckahn/debiaser-service.git "$1"
-    cd "$1" || exit 1
-    rm -rf .git
-    find . -type f -exec sed -i "" "s/debiaser-service/$1/g" {} \;
-    git init
-    git add --all
-    git commit -m "Initial commit"
-    npm install
-  fi
-}
+npm run start:local
 ```
 
-## Authoring in ES6
-
-Painlessly write your code as beautiful ES6!  Thanks to [Webpack](https://webpack.github.io/), all of your code will be compiled down to more compatible ES5 syntax that can be easily used by downstream projects.
-
-## Running tests (written in Mocha)
-
-Code should be tested!  [Mocha](https://mochajs.org/) is a perennial test framework among JavaScript developers, so this project uses that.
+## Deploying
 
 ```
-# run tests in the CLI
-npm test
+npm run deploy
 ```
 
-```
-# run tests in the CLI with a watcher that will re-run tests
-# when you make a code change
-npm run test:watch
-```
-
-You can also run the test suite in browsers via [Karma](https://karma-runner.github.io).  Only Chrome and Firefox are configured by default because other browsers are a little hard to get to run consistently.  Running the tests in IE are supported and known to work, but are disabled by default.  Please see the note in `karma.conf.js` in the `browsers` section if you would like instructions on how to run the tests in IE.
+You can also update https://debiaser-service.now.sh with `now alias`, like so:
 
 ```
-npm run test:browsers
+now alias set debiaser-service-[DEPLOYMENT_ID].now.sh debiaser-service.now.sh
 ```
 
-## Debugging
+## Tail logs
 
-This project configures Webpack to generate [source maps](https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/) so you can use your browser's dev tools to debug your ES6 code just as easily as you would with ES5.
-
-```
-# run the tests in your browser
-npm start
-```
-
-From here, you can fire up your browser's dev tools and set breakpoints, step through code, etc.  You can run the app at <a href="http://localhost:9123">http://localhost:9123</a>, or run the tests at <a href="http://localhost:9123/test.html">http://localhost:9123/test.html</a>.
-
-## A build process
-
-All projects need a build process, and this project leverages Webpack for that as well.
+After deploying, run:
 
 ```
-npm run build
+npm run view:logs
 ```
-
-Your compiled code will wind up in the `dist` directory.
-
-## Documentation
-
-You should make sure to update the [JSDoc](http://usejsdoc.org/) annotations as you work.  To view the formatted documentation in your browser:
-
-```
-npm run doc
-npm run doc:view
-```
-
-This will generate the docs and run them in your browser.  If you would like this to update automatically as you work, run this task:
-
-```
-npm run doc:live
-```
-
-## Versioned releases
-
-npm makes it super easy to make versioned releases!  This project is set up to run tests before making a release, which helps prevent you from releasing new versions with bugs.  This happens automatically thanks to the [npm version scripts](https://docs.npmjs.com/cli/version).
-
-```
-npm version patch # Or "minor," or "major"
-```
-
-This will also use the [gh-pages](https://github.com/tschaub/gh-pages) utility to deploy your versioned project with [GitHub Pages](https://pages.github.com/).
 
 ## License
 

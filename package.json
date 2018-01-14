@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
+    "start:local": "export NEWS_API_KEY=$(cat news-api-key.txt) && npm start",
     "deploy": "now --public -e NEWS_API_KEY=$(cat news-api-key.txt)",
     "undeploy": "now rm debiaser-service",
     "view:logs": "now-logs $(cat news-api-key.txt)"
