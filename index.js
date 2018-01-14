@@ -16,6 +16,7 @@ app.get('/', function (req, res, next) {
   );
 
   res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   const getUrl = `${apiRoot}${apiArgs}apiKey=${NEWS_API_KEY}`;
 
   request(getUrl, (error, apiResponse, body) => res.send(body));
