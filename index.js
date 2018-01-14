@@ -8,10 +8,6 @@ const apiRoot = 'https://newsapi.org/v2/top-headlines?';
 
 require('now-logs')(NEWS_API_KEY);
 
-app.post('/', function (req, res, next) {
-  res.send('You POSTed to the micro-service!');
-});
-
 app.get('/', function (req, res, next) {
   const { query } = req;
   const apiArgs = Object.keys(query).reduce(
