@@ -7,7 +7,7 @@
     "start": "node ./index.js",
     "deploy": "now --public -e NEWS_API_KEY=$(cat news-api-key.txt)",
     "undeploy": "now rm debiaser-service",
-    "print:logs": "now logs $(now ls debiaser-service | tail -n2 | grep -o \"debiaser-service-.*.now.sh\")"
+    "view:logs": "now-logs $(cat news-api-key.txt)"
   },
   "author": "Jeremy Kahn <jeremyckahn@gmail.com>",
   "license": "MIT",
@@ -16,7 +16,8 @@
   ],
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "now-logs": "0.0.7"
   },
   "devDependencies": {
     "now": "^9.0.1"
