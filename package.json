@@ -7,6 +7,7 @@
     "start": "node ./index.js",
     "start:local": "export NEWS_API_KEY=$(cat news-api-key.txt) && npm start",
     "deploy": "now --public -e NEWS_API_KEY=$(cat news-api-key.txt)",
+    "alias": "now alias",
     "undeploy": "now rm debiaser-service",
     "view:logs": "now-logs $(cat news-api-key.txt)"
   },
@@ -15,6 +16,9 @@
   "files": [
     "index.js"
   ],
+  "now": {
+    "alias": "debiaser-service"
+  },
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",

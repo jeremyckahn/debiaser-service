@@ -22,10 +22,10 @@ npm run start:local
 npm run deploy
 ```
 
-You can also update https://debiaser-service.now.sh with `now alias`, like so:
+You can also update the https://debiaser-service.now.sh alias to point to the latest deployment, like so:
 
 ```
-now alias set debiaser-service-[DEPLOYMENT_ID].now.sh debiaser-service.now.sh
+npm run alias
 ```
 
 ## Tail logs
