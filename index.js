@@ -4,12 +4,16 @@ const bodyParser = require('body-parser');
 const request = require('request');
 
 const NEWS_API_KEY = process.env.NEWS_API_KEY || '_';
-const apiRoot = 'https://newsapi.org/v2/top-headlines?';
+const apiRoot = 'https://newsapi.org/v2/';
 
 require('now-logs')(NEWS_API_KEY);
 
-app.get('/', function (req, res, next) {
-  const { query } = req;
+app.get('/:endpoint', function (req, res, next) {
+  const {
+    query,
+    params: { endpoint }
+  } = req;
+
   const apiArgs = Object.keys(query).reduce(
     (acc, key) => `${acc}${key}=${query[key]}&`,
      ''
@@ -17,7 +21,7 @@ app.get('/', function (req, res, next) {
 
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*');
-  const getUrl = `${apiRoot}${apiArgs}apiKey=${NEWS_API_KEY}`;
+  const getUrl = `${apiRoot}${endpoint}?${apiArgs}apiKey=${NEWS_API_KEY}`;
 
   request(getUrl, (error, apiResponse, body) => res.send(body));
 });
